@@ -1,0 +1,1 @@
+export const SET_TABLE_TITLE = 'SET_TABLE_TITLE'

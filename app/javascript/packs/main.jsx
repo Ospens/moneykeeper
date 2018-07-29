@@ -1,19 +1,23 @@
 
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import Provider from 'react-redux' 
+import { Provider } from 'react-redux' 
+import mainStore from '../stores/mainStore'
+import TopBar from '../containers/topBar'
 
 class App extends Component {
 
   render() {
-    return <h1>Hello </h1>
+    return <TopBar />
   }
 
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <App />,
+    <Provider store={mainStore}>
+      <App />
+    </Provider>,
     document.getElementById('app'),
   )
 })
