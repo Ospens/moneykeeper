@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
-  namespace :user do
-    root to: 'welcome#index'
+  namespace :api, defaults: { format: :json } do
+    get 'table', to: 'config#table'
   end
 end
