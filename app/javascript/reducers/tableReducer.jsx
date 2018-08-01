@@ -1,10 +1,6 @@
 import { SET_TABLE_TITLE } from '../constants/actionTypes'
 
-const initState = {
-  tableTitle: 'table title'
-}
-
-export default (state = initState, action) => {
+export default (state = {}, action) => {
   switch(action.type) {
     case SET_TABLE_TITLE:
       return {...state, tableTitle: action.payload}

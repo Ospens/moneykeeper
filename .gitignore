@@ -33,3 +33,6 @@ yarn-debug.log*
 /config/database.yml
 /config/secrets.yml
 /config/cable.yml
+
+./Gemfile.lock
+Gemfile\.lock

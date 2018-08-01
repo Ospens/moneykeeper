@@ -7,7 +7,7 @@ export const setTableTitle = (title) => ({
 })
 
 export const fetchTableData = () => {
-  return (dispatch) => {
+  return dispatch => {
     tableData()
       .then(res => dispatch(setTableTitle(res.table.title)))
   }

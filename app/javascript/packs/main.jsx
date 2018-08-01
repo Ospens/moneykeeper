@@ -5,12 +5,12 @@ import { Provider } from 'react-redux'
 import mainStore from '../stores/mainStore'
 import TopBar from '../containers/topBar'
 
-class App extends Component {
-
-  render() {
-    return <TopBar />
-  }
-
+const App = () => {
+  return (
+    <div className="app">
+      <TopBar />
+    </div>
+  )
 }
 
 document.addEventListener('DOMContentLoaded', () => {

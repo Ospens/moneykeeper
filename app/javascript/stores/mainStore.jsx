@@ -7,9 +7,18 @@ const rootReducer = combineReducers({
   table: tableReducer
 })
 
-export default createStore(
+const store = createStore(
   rootReducer,
+  (localStorage['moneysaver-store']) ?
+    JSON.parse(localStorage['moneysaver-store']) :
+    {},
   composeWithDevTools(
     applyMiddleware(thunk)
   )
 )
+
+store.subscribe(() =>
+  localStorage['moneysaver-store'] = JSON.stringify(store.getState())
+)
+
+export default store

@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const TableTitle = ({ title }) => {
-  return <h3>Table: {title}</h3>
+export default class TableTitle extends Component {
+
+  componentWillMount() {
+    this.props.fetchTableData()
+  }
+
+  render() {
+    return <h3>Table: {this.props.title}</h3>
+  }
 }
-
-export default TableTitle
