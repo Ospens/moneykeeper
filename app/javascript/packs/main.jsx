@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux' 
 import mainStore from '../stores/mainStore'
 import TopBar from '../containers/topBar'
+import '../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
 
 const App = () => {
   return (
