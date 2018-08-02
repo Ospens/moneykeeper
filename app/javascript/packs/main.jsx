@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import mainStore from '../stores/mainStore'
 import TopBar from '../containers/topBar'
 import '../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
+import '../../../node_modules/bootstrap/dist/css/bootstrap.css'
 
 const App = () => {
   return (
