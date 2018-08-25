@@ -7,6 +7,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'webpacker'
 gem 'jbuilder', '~> 2.5'
+gem 'sass-rails'
+gem 'uglifier'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
