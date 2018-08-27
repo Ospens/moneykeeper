@@ -10,13 +10,23 @@ function addProducts(quantity) {
     const id = startId + i + 1;
     products.push({
       date: id,
-      account1: [[100, 1, '123'], [220, 2, '003']],
+      account1: [{
+        sum: 100,
+        category: 1,
+        description: '123'
+      },
+      {
+        sum: 110,
+        category: 2,
+        description: '22'
+      },
+      ],
       price: 2100 + i
     });
   }
 }
 
-addProducts(31);
+addProducts(5);
 
 
 export default class TableTitle extends Component {
@@ -26,36 +36,49 @@ export default class TableTitle extends Component {
   }
 
   render() {
-
-    const cellEditProp = {
-      mode: 'click'
-    }
-
-    const createEditModal = (onUpdate, props) => (<EditModal onUpdate={onUpdate} {...props} />)
-
+    console.log(products)
+    console.log(products.map(id => id.account1).map(a => a.map(el => el.sum)))
     return (
-      <BootstrapTable data={products} cellEdit={cellEditProp}>
-        <TableHeaderColumn dataField='date' isKey={true} row='0' rowSpan='2' >Август</TableHeaderColumn>
-        
-        <TableHeaderColumn dataField='account1' row='0'>Наличные</TableHeaderColumn>
-        <TableHeaderColumn
-          dataField='account1'
-          row='1'
-          customEditor={{ getElement: createEditModal }}
-        >
-          {products.map(id => id.account1).reduce((a, b) => a + b, 0)}
-        </TableHeaderColumn>
-        
-        <TableHeaderColumn dataField='total' row='0'>Всего</TableHeaderColumn>
-        <TableHeaderColumn dataField='total' row='1'>sum</TableHeaderColumn>
-        
-        <TableHeaderColumn dataField='category1' row='0'>Необходимое</TableHeaderColumn>
-        <TableHeaderColumn row='1'>sum</TableHeaderColumn>
-        
-        <TableHeaderColumn dataField='deposit1' row='0'>Вклад 1</TableHeaderColumn>
-        <TableHeaderColumn row='1'>sum</TableHeaderColumn>
-
-      </BootstrapTable>
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th rowSpan="2">Август</th>
+            <th>Наличные</th>
+            <th>Всего</th>
+            <th>Необходимое</th>
+            <th>Вклад</th>
+          </tr>
+          <tr>
+            <th>{products.map(id => id.account1).reduce((a, b) => a + b, 0)}</th>
+            <th>sum</th>
+            <th>sum</th>
+            <th>sum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry the Bird</td>
+            <td>Larry the Bird</td>
+            <td>@twitter</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
     )
   }
 }
