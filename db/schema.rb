@@ -10,10 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_28_061601) do
+ActiveRecord::Schema.define(version: 2018_08_27_051027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "balance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "costs_categories", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "balance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "operations", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "costs_category_id"
+    t.text "description"
+    t.integer "sum"
+    t.integer "operation_type"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_operations_on_account_id"
+    t.index ["costs_category_id"], name: "index_operations_on_costs_category_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -22,4 +51,6 @@ ActiveRecord::Schema.define(version: 2018_07_28_061601) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "operations", "accounts"
+  add_foreign_key "operations", "costs_categories"
 end
