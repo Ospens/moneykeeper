@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux' 
 import mainStore from '../stores/mainStore'
 import TopBar from '../containers/topBar'
-import '../../../node_modules/bootstrap/dist/css/bootstrap.css'
 
 const App = () => {
   return (
@@ -13,7 +12,6 @@ const App = () => {
     </div>
   )
 }
-
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Provider store={mainStore}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import EditModal from './editModal'
+import './tableTitle.scss'
 
 const products = [];
 
